@@ -10,34 +10,33 @@
   <div class="container">
     <h1>⚡ Optimus – Outil de Dimensionnement</h1>
 
-    <button id="toggle-form">Masquer les entrées ▲</button>
+    <button id="toggle-form">Masquer les entrées</button>
 
     <div class="content">
       <div class="form-card" id="form-section">
         <form id="form">
-          <label for="puissance">Puissance (VA)</label>
+          <label for="puissance">Puissance (kVA)</label>
           <input type="number" id="puissance" required />
 
-          <label for="tensionPrimaire">Tension primaire (V)</label>
+          <label for="tensionPrimaire">Tension primaire (kV)</label>
           <input type="number" id="tensionPrimaire" required />
 
-          <label for="tensionSecondaire">Tension secondaire (V)</label>
+          <label for="tensionSecondaire">Tension secondaire (kV)</label>
           <input type="number" id="tensionSecondaire" required />
 
           <label for="frequence">Fréquence (Hz)</label>
           <input type="number" id="frequence" value="50" required />
 
-          <label for="noyau">Type de noyau</label>
-          <select id="noyau">
-            <option value="EI">EI</option>
-            <option value="UI">UI</option>
-            <option value="Toroïdal">Toroïdal</option>
+          <label for="couppri">Couplage primaire</label>
+          <select id="couppri">
+            <option value="triangle">Triangle</option>
+            <option value="etoile">Étoile</option>
           </select>
 
-          <label for="materiau">Matériau magnétique</label>
-          <select id="materiau">
-            <option value="Fe-Si">Fer-Silicium</option>
-            <option value="Ferrite">Ferrite</option>
+          <label for="coupsec">Couplage secondaire</label>
+          <select id="coupsec">
+            <option value="triangle">Triangle</option>
+            <option value="etoile">Étoile</option>
           </select>
 
           <label for="refroidissement">Refroidissement</label>
