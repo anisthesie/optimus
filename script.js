@@ -49,9 +49,9 @@ document.getElementById("toggle-form").addEventListener("click", () => {
   const btn = document.getElementById("toggle-form");
   if (section.style.display === "none") {
     section.style.display = "block";
-    btn.textContent = "Masquer les entrées ▲";
+    btn.textContent = "Masquer les entrées";
   } else {
     section.style.display = "none";
-    btn.textContent = "Afficher les entrées ▼";
+    btn.textContent = "Afficher les entrées";
   }
 });

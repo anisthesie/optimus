@@ -9,49 +9,49 @@
 <body>
   <div class="container">
     <h1>⚡ Optimus – Outil de Dimensionnement</h1>
-
+    
     <button id="toggle-form">Masquer les entrées</button>
-
+    
     <div class="content">
       <div class="form-card" id="form-section">
         <form id="form">
           <label for="puissance">Puissance (kVA)</label>
           <input type="number" id="puissance" required />
-
+          
           <label for="tensionPrimaire">Tension primaire (kV)</label>
           <input type="number" id="tensionPrimaire" required />
-
+          
           <label for="tensionSecondaire">Tension secondaire (kV)</label>
           <input type="number" id="tensionSecondaire" required />
-
+          
           <label for="frequence">Fréquence (Hz)</label>
           <input type="number" id="frequence" value="50" required />
-
+          
           <label for="couppri">Couplage primaire</label>
           <select id="couppri">
-            <option value="triangle">Triangle</option>
             <option value="etoile">Étoile</option>
+            <option value="triangle">Triangle</option>
           </select>
-
+          
           <label for="coupsec">Couplage secondaire</label>
           <select id="coupsec">
             <option value="triangle">Triangle</option>
             <option value="etoile">Étoile</option>
           </select>
-
+          
           <label for="refroidissement">Refroidissement</label>
           <select id="refroidissement">
             <option value="air">Air</option>
             <option value="huile">Huile</option>
           </select>
-
+          
           <button type="submit">Lancer les calculs</button>
         </form>
       </div>
-
+      
       <div class="result-card" id="resultats">
         <h2>📊 Résultats</h2>
-
+        
         <div class="category">
           <h3>⚙️ Calculs préliminaires</h3>
           <p>Puissance apparente : <span id="prelim-puissance">–</span> VA</p>
@@ -59,7 +59,7 @@
           <p>Courant secondaire : <span id="prelim-courant-sec">–</span> A</p>
           <p>Tension court-circuit : <span id="tcc">–</span> V</p>
         </div>
-
+        
         <div class="category">
           <h3>🔄 Enroulements</h3>
           <p>Spires primaire : <span id="spires-pri">–</span></p>
@@ -69,21 +69,21 @@
           <p>Longueur fil : <span id="longueur-fil">–</span> m</p>
           <p>Résistance enroulements : <span id="resistance-enroulements">–</span> Ω</p>
         </div>
-
+        
         <div class="category">
           <h3>📐 Dimensions géométriques</h3>
           <p>Section noyau : <span id="noyau-section">–</span> cm²</p>
           <p>Dimensions extérieures : <span id="dimensions-ext">–</span> cm</p>
           <p>Volume bobinage : <span id="volume-bobinage">–</span> cm³</p>
         </div>
-
+        
         <div class="category">
           <h3>🧲 Circuit magnétique</h3>
           <p>Induction : <span id="induction">–</span> T</p>
           <p>Longueur moyenne circuit : <span id="longueur-circuit">–</span> cm</p>
           <p>Densité flux : <span id="flux-densite">–</span> T</p>
         </div>
-
+        
         <div class="category">
           <h3>🔥 Pertes et rendement</h3>
           <p>Pertes fer : <span id="pertes-fer">–</span> W</p>
