@@ -103,6 +103,12 @@ button[type="submit"]:hover {
   margin: 5px 0;
 }
 
+.sep {
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 5px;
+  width: 100px;
+}
+
 footer {
   text-align: center;
   font-size: 0.85rem;
