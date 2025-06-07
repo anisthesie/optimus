@@ -1,107 +1,195 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Optimus – Calculateur de Transformateur</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8"/>
+    <title>Optimus – Calculateur de Transformateur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <h1>⚡ Optimus – Outil de Dimensionnement</h1>
-    
+
     <button id="toggle-form">Masquer les entrées</button>
-    
+
     <div class="content">
-      <div class="form-card" id="form-section">
-        <form id="form">
-          <label for="puissance">Puissance (kVA)</label>
-          <input type="number" id="puissance" required />
-          
-          <label for="tensionPrimaire">Tension primaire (kV)</label>
-          <input type="number" id="tensionPrimaire" required />
-          
-          <label for="tensionSecondaire">Tension secondaire (kV)</label>
-          <input type="number" id="tensionSecondaire" required />
-          
-          <label for="frequence">Fréquence (Hz)</label>
-          <input type="number" id="frequence" value="50" required />
-          
-          <label for="couppri">Couplage primaire</label>
-          <select id="couppri">
-            <option value="etoile">Étoile</option>
-            <option value="triangle">Triangle</option>
-          </select>
-          
-          <label for="coupsec">Couplage secondaire</label>
-          <select id="coupsec">
-            <option value="triangle">Triangle</option>
-            <option value="etoile">Étoile</option>
-          </select>
-          
-          <label for="refroidissement">Refroidissement</label>
-          <select id="refroidissement">
-            <option value="air">Air</option>
-            <option value="huile">Huile</option>
-          </select>
-          
-          <button type="submit">Lancer les calculs</button>
-        </form>
-      </div>
-      
-      <div class="result-card" id="resultats">
-        <h2>📊 Résultats</h2>
-        
-        <div class="category">
-          <h3>⚙️ Calculs préliminaires</h3>
-          <p>Tension de phase primaire : <span id="prelim-tensionphaseprimaire">–</span> kV</p>
-          <p>Courant de phase primaire : <span id="prelim-courantphaseprimaire">–</span> A</p>
-          <p class="sep"></p>
-          <p>Tension de phase secondaire : <span id="prelim-tensionphasesecondaire">–</span> kV</p>
-          <p>Courant de phase secondaire : <span id="prelim-courantphasesecondaire">–</span> A</p>
-          <p class="sep"></p>
-          <p>Puissance apparante par colonne : <span id="prelim-puissancecolonne">–</span> kVA</p>
-          <p>Diamètre de la colonne : <span id="prelim-diametrecolonne">–</span> cm</p>
-          <p>Diamètre du canal de fuite : <span id="prelim-diametrecanalfuite">–</span> cm</p>
-          
-          
+        <div class="form-card" id="form-section">
+            <form id="form">
+                <label for="puissance">Puissance (kVA)</label>
+                <input type="number" id="puissance" required/>
+
+                <label for="tensionPrimaire">Tension primaire (kV)</label>
+                <input type="number" id="tensionPrimaire" required/>
+
+                <label for="tensionSecondaire">Tension secondaire (kV)</label>
+                <input type="number" id="tensionSecondaire" required/>
+
+                <label for="frequence">Fréquence (Hz)</label>
+                <input type="number" id="frequence" value="50" required/>
+
+                <label for="couppri">Couplage primaire</label>
+                <select id="couppri">
+                    <option value="etoile">Étoile</option>
+                    <option value="triangle">Triangle</option>
+                </select>
+
+                <label for="coupsec">Couplage secondaire</label>
+                <select id="coupsec">
+                    <option value="triangle">Triangle</option>
+                    <option value="etoile">Étoile</option>
+                </select>
+
+                <label for="refroidissement">Refroidissement</label>
+                <select id="refroidissement">
+                    <option value="air">Air</option>
+                    <option value="huile">Huile</option>
+                </select>
+
+                <button type="submit">Lancer les calculs</button>
+            </form>
         </div>
-        
-        <div class="category">
-          <h3>🔄 Enroulements</h3>
-          <p>Spires primaire : <span id="spires-pri">–</span></p>
-          <p>Spires secondaire : <span id="spires-sec">–</span></p>
-          <p>Section fil primaire : <span id="section-fil-pri">–</span> mm²</p>
-          <p>Section fil secondaire : <span id="section-fil-sec">–</span> mm²</p>
-          <p>Longueur fil : <span id="longueur-fil">–</span> m</p>
-          <p>Résistance enroulements : <span id="resistance-enroulements">–</span> Ω</p>
+
+        <div class="result-card" id="resultats">
+            <h2>📊 Résultats</h2>
+
+            <div class="category">
+                <h3>⚙️ Calculs préliminaires</h3>
+                <p>Tension de phase primaire : <span id="prelim-tensionphaseprimaire">–</span> kV</p>
+                <p>Courant de phase primaire : <span id="prelim-courantphaseprimaire">–</span> A</p>
+                <p class="sep"></p>
+                <p>Tension de phase secondaire : <span id="prelim-tensionphasesecondaire">–</span> kV</p>
+                <p>Courant de phase secondaire : <span id="prelim-courantphasesecondaire">–</span> A</p>
+                <p class="sep"></p>
+                <p>Puissance apparante par colonne : <span id="prelim-puissancecolonne">–</span> kVA</p>
+                <p>Diamètre de la colonne : <span id="prelim-diametrecolonne">–</span> cm</p>
+                <p>Diamètre du canal de fuite : <span id="prelim-diametrecanalfuite">–</span> cm</p>
+                <p class="sep"></p>
+
+
+            </div>
+
+            <div class="category">
+                <h3>🔄 Enroulements</h3>
+                <p>Section du fer : <span id="enroul-sectionfer">–</span> cm²</p>
+                <p>Section du conducteur primaire : <span id="enroul-sectionconducteurprimaire">–</span> mm²</p>
+                <p>Section du conducteur secondaire : <span id="enroul-sectionconducteursecondaire">–</span> mm²</p>
+                <p class="sep"></p>
+                <p>Nombre de spires (P, S) : <span id="enroul-nombrespires">–</span></p>
+                <p class="sep"></p>
+                <p>Tension de spire par phase : <span id="enroul-tensionspirephase">–</span> V</p>
+                <p>Densité du courant : <span id="enroul-densitécourant">–</span> A/mm²</p>
+                <p>Induction magnétique : <span id="enroul-inductionmagnetique">–</span> T</p>
+                <p class="sep"></p>
+
+            </div>
+            <div class="category">
+                <h3>📐 Dimensions géométriques</h3>
+
+
+                <div class="subcategory">
+                    <h4> ● Enroulement primaire</h4>
+                    <p>Hauteur de la bobine : <span id="dimgeo-hauteurbobineprimaire">–</span> cm</p>
+                    <p class="sep"></p>
+                    <p>Nombre de spires : <span id="dimgeo-nombrespiresprimaire">–</span></p>
+                    <p>Nombre de couches : <span id="dimgeo-nomrbecouchesprim">–</span></p>
+                    <p>Nombre de spires par couche : <span id="dimgeo-spiresparcoucheprim">–</span></p>
+                    <p class="sep"></p>
+                    <p>Diamètre du conducteur isolé : <span id="dimgeo-diametreconducisoleprimaire">–</span> mm</p>
+                    <p>Diamètre moyen de l'enroulement : <span id="dimgeo-diametremoyenenroulprimaire">–</span> cm</p>
+                    <p class="sep"></p>
+                    <p>Épaisseur de l'enroulement : <span id="dimgeo-epaisseurenroulementprim">–</span> cm</p>
+                    <p>Épaisseur rapportée du canal de fuite : <span id="dimgeo-epaisseurcanalfuiteprim">–</span> cm</p>
+                    <p class="sep"></p>
+                    <p>Longueur totale du conducteur : <span id="dimgeo-longueurtotconducteurprimaire">–</span> m/phase
+                    </p>
+                    <p>Longueur moyenne de spire : <span id="dimgeo-longueurmoyennespireprim">–</span> m</p>
+                    <p class="sep"></p>
+                    <p>Résistance en courant continu : <span id="dimgeo-resistancecourantcontinuprim">–</span> Ω</p>
+                    <p class="sep"></p>
+
+                </div>
+
+                <div class="subcategory">
+                    <h4> ● Enroulement secondaire</h4>
+                    <p>Hauteur de la bobine : <span id="dimgeo-hauteurbobinesecondaire">–</span> cm</p>
+                    <p class="sep"></p>
+                    <p>Diamètre du canal de fuite : <span id="dimgeo-diametrecanaldefuitesecondaire">–</span> cm</p>
+                    <p>Diamètre moyen de l'enroulement : <span id="dimgeo-diametremoyenenroulsecondaire">–</span> cm</p>
+                    <p class="sep"></p>
+                    <p>Épaisseur du conducteur : <span id="dimgeo-epaisseurconducteursecondaire">–</span> pm</p>
+                    <p class="sep"></p>
+                    <p>Longueur totale du conducteur : <span id="dimgeo-longueurtotconducteursecondaire">–</span>
+                        m/phase</p>
+                    <p>Longueur moyenne de spire : <span id="dimgeo-longueurmoyennespiresecondaire">–</span> m</p>
+                    <p class="sep"></p>
+                    <p>Résistance en courant continu : <span id="dimgeo-resistancecourantcontinusecondaire">–</span> Ω</p>
+                    <p>Facteur de Sveltess : <span id="dimgeo-facteursveltesssecondaire">–</span></p>
+                    <p class="sep"></p>
+
+                </div>
+
+
+            </div>
+
+            <div class="category">
+                <h3>🧲 Circuit magnétique</h3>
+
+                <div class="subcategory">
+                    <p>Largeur de la fenêtre : <span id="cirmagn-largeurfenetre">–</span> cm</p>
+                    <p>Hauteur de la fenêtre : <span id="cirmagn-hauteurfenetre">–</span> cm</p>
+                    <p class="sep"></p>
+                    <p>Section de la culasse : <span id="cirmagn-sectionculasse">–</span> cm²</p>
+                    <p>Longueur de la culasse : <span id="cirmagn-longueurculasse">–</span> cm</p>
+                    <p>Largeur de la fenêtre : <span id="cirmagn-largeurculasse">–</span> cm</p>
+                    <p>Hauteur de la culasse : <span id="cirmagn-hauteurculasse">–</span> cm</p>
+                    <p>Hauteur du circuit magnétique : <span id="cirmagn-hauteurcircuitmagn">–</span> cm</p>
+                    <p class="sep"></p>
+                    <p>Induction magnétique dans la culasse : <span id="cirmagn-inductionculasse">–</span> T</p>
+                    <p>Induction magnétique dans les coins : <span id="cirmagn-inductioncoins">–</span> T</p>
+                    <p class="sep"></p>
+
+                </div>
+
+                <div class="subcategory">
+                    <p>Poids du cuivre primaire : <span id="cirmagn-poidscuivreprimaire">–</span> kg/colonne</p>
+                    <p>Poids du cuivre secondaire : <span id="cirmagn-poidscuivresecondaire">–</span> kg/colonne</p>
+                    <p>Poids total du cuivre : <span id="cirmagn-poidstotalcuivre">–</span> kg</p>
+                    <p class="sep"></p>
+                    <p>Poids des culasses : <span id="cirmagn-poidsculasses">–</span> kg</p>
+                    <p>Poids des colonnes : <span id="cirmagn-poidscolonnes">–</span> kg</p>
+                    <p>Poids des coins : <span id="cirmagn-poidscoins">–</span> kg</p>
+                    <p>Poids total du circuit magnétique : <span id="cirmagn-poidstotalcirmagn">–</span> kg</p>
+                    <p class="sep"></p>
+
+                </div>
+
+            </div>
+
+            <div class="category">
+                <h3>🔥 Pertes et rendement</h3>
+                <p>Pertes Joule primaires : <span id="pertes-pertesjouleprimaires">–</span> W</p>
+                <p>Pertes Joule primaires dans les connexions : <span id="pertes-pertesjouleconnexionsprimaires">–</span> W</p>
+                <p class="sep"></p>
+                <p>Pertes Joule secondaires : <span id="pertes-pertesjoulesec">–</span> W</p>
+                <p>Pertes Joule secondaires dans les connexions : <span id="pertes-pertesjouleconnexionssec">–</span> W</p>
+                <p class="sep"></p>
+                <p>Pertes supplémentaires  : <span id="pertes-pertessupp">–</span> W</p>
+                <p>Pertes Joule totales : <span id="pertes-pertestotales">–</span> W</p>
+                <p class="sep"></p>
+                <p>Pertes fer dans les colonnes : <span id="pertes-pertesfercolonnes">–</span> W</p>
+                <p>Pertes fer dans les culasses : <span id="pertes-pertesferculasses">–</span> W</p>
+                <p>Pertes fer dans les coins : <span id="pertes-pertesfercoins">–</span> W</p>
+                <p>Pertes fer totales : <span id="pertes-pertesfertotales">–</span> W</p>
+                <p class="sep"></p>
+                <p>Tension de court-circuit : <span id="pertes-tensioncourtcircuit">–</span> %</p>
+                <p>Rendement : <span id="pertes-rendement">–</span> %</p>
+                <p class="sep"></p>
+
+            </div>
         </div>
-        
-        <div class="category">
-          <h3>📐 Dimensions géométriques</h3>
-          <p>Section noyau : <span id="noyau-section">–</span> cm²</p>
-          <p>Dimensions extérieures : <span id="dimensions-ext">–</span> cm</p>
-          <p>Volume bobinage : <span id="volume-bobinage">–</span> cm³</p>
-        </div>
-        
-        <div class="category">
-          <h3>🧲 Circuit magnétique</h3>
-          <p>Induction : <span id="induction">–</span> T</p>
-          <p>Longueur moyenne circuit : <span id="longueur-circuit">–</span> cm</p>
-          <p>Densité flux : <span id="flux-densite">–</span> T</p>
-        </div>
-        
-        <div class="category">
-          <h3>🔥 Pertes et rendement</h3>
-          <p>Pertes fer : <span id="pertes-fer">–</span> W</p>
-          <p>Pertes cuivre : <span id="pertes-cuivre">–</span> W</p>
-          <p>Pertes totales : <span id="pertes-totales">–</span> W</p>
-          <p>Rendement : <span id="rendement">–</span> %</p>
-        </div>
-      </div>
     </div>
-  </div>
-  <footer>© 2025 Optimus – Tous droits réservés.</footer>
-  <script src="script.js"></script>
+</div>
+<footer>© 2025 Optimus – Tous droits réservés.</footer>
+<script src="script.js"></script>
 </body>
 </html>
